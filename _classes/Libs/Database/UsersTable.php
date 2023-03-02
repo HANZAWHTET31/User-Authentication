@@ -24,4 +24,21 @@ class UsersTable
 
         return $user;
     }
+
+    public function insert($data)
+    {
+        $query = "INSERT INTO users (name, email, phone, address, password, created_at) VALUES (:name, :email, :phone, :address, :password, NOW())";
+        $statement = $this->db->prepare($query);
+        $statement->execute($data);
+    }
+
+    public function getAll()
+    {
+        $query = "SELECT users.*, roles.name AS role, roles.value FROM users LEFT JOIN roles ON users.role_id = roles.id";
+        $statement = $this->db->query($query);
+        $usersData = $statement->fetchAll();
+        return $usersData;
+    }
+
+    public function 
 }
