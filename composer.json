@@ -1,0 +1,16 @@
+{
+    "name": "hzh/project3",
+    "autoload": {
+        "psr-4": {
+            "Helpers\\": "_classes/Helpers/",
+            "Libs\\Database\\": "_classes/Libs/Database/"
+        }
+    },
+    "authors": [
+        {
+            "name": "HAN ZAW HTET",
+            "email": "hanzawhtet317@gmail.com"
+        }
+    ],
+    "require": {}
+}
