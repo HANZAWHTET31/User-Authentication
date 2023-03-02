@@ -19,13 +19,18 @@
         <section class="container">
             <h1>Log In</h1>
             <hr>
+            <?php if($_GET["login"] === "fail") : ?>
+                <div class="p-3 mb-3">
+                    <span class="alert alert-danger">Email and Password incorrect!</span>
+                </div>
+            <?php endif ?>
             <form action="_actions/login.php" method="post">
                 <label for="mail" class="form-label">Email</label>
-                <input type="text" id="mail" name="email" class="form-control">
+                <input type="text" id="mail" name="email" class="form-control" required>
                 <label for="pswd" class="form-label">Password</label>
-                <input type="password" id="pswd" name="password" class="form-control">
+                <input type="password" id="pswd" name="password" class="form-control" required>
                 <br>
-                <input type="submit" class="form-control" value="Log In">
+                <input type="submit" class="form-control bg-info" value="Log In">
             </form>
             <hr>
             <p class="text-center">
