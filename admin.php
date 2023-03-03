@@ -82,7 +82,7 @@ $roles = $rolesTable->getAllRoles();
                                 <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">Change Role</a>
                                 <div class="dropdown-menu">
                                     <?php foreach($roles as $role) : ?>
-                                        <a href="_actions/role.php?id=<?=$user->id?>&role=<?=$role->id?>" class="dropdown-item"><?=$role->name?></a>
+                                        <a href="_actions/roles.php?id=<?=$user->id?>&role=<?=$role->id?>" class="dropdown-item"><?=$role->name?></a>
                                     <?php endforeach ?>
                                 </div>
                                 <a href="_actions/delete.php?id=<?=$user->id?>" class="btn">delete</a>

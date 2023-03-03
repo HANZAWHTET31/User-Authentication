@@ -20,6 +20,10 @@ $user = Auth::check();
         <h1>Profile</h1>
         <hr>
         <h2><?= $user->name ?></h2>
+        <form action="_actions/upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="photo" class="form-control">
+            <input type="submit" class="form-control" value="Upload">
+        </form>
         <h3>Personal Info</h3>
         <ul class="list-group">
             <li class="list-group-item"><b>Email : </b><?= $user->email ?></li>
@@ -28,7 +32,8 @@ $user = Auth::check();
         </ul>
         <hr>
         <div>
-            <button class="btn btn-outline btn-light"><a href="_actions/logout.php">Log out</a></button>
+            <button class="btn btn-info"><a href="admin.php" class="text-dark">Admin Dashboard</a></button>
+            <button class="btn btn-secondary"><a href="_actions/logout.php" class="text-light">Log out</a></button>
         </div>
     </main>
 </body>
