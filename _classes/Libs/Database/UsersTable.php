@@ -15,7 +15,7 @@ class UsersTable
 
     public function login($email, $password)
     {
-        $query = "SELECT * FROM users WHERE email = :email AND password = :password";
+        $query = "SELECT users.*, roles.name AS role, roles.* FROM users LEFT JOIN roles ON users.role_id = roles.id WHERE email = :email AND password = :password";
 
         $statement = $this->db->prepare($query);
         $statement->execute([ ":email" => $email, ":password" => $password ]);
