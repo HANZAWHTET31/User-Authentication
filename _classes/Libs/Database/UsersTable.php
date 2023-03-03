@@ -43,5 +43,19 @@ class UsersTable
         return $usersData;
     }
 
+    public function suspend($id)
+    {
+        $query = "UPDATE users SET suspended = 1 WHERE id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->execute([":id" => $id]);
+        return $this->db->lastInsertId();
+    }
     
+    public function unsuspend($id)
+    {
+        $query = "UPDATE users SET suspended = 0 WHERE id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->execute([":id" => $id]);
+        return $this->db->lastInsertId();
+    }
 }

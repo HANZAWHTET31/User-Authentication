@@ -75,9 +75,9 @@ $roles = $rolesTable->getAllRoles();
                         <?php if($authUser->value == 3) : ?>
                             <td>
                                 <?php if($user->suspended == 1) : ?>
-                                    <a href="_actions/unsuspend.php?id=<?=$user->id?>" class="btn">Unsuspend</a>
+                                    <a href="_actions/unsuspend.php?id=<?=$user->id?>" class="btn btn-success">Unsuspend</a>
                                 <?php else : ?>
-                                    <a href="_actions/suspend.php?id=<?=$user->id?>" class="btn">Suspend</a>
+                                    <a href="_actions/suspend.php?id=<?=$user->id?>" class="btn btn-danger">Suspend</a>
                                 <?php endif ?>
                                 <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">Change Role</a>
                                 <div class="dropdown-menu">
