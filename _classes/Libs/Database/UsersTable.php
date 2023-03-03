@@ -58,4 +58,18 @@ class UsersTable
         $statement->execute([":id" => $id]);
         return $this->db->lastInsertId();
     }
+
+    public function delete($id)
+    {
+        $query = "DELETE FROM users WHERE id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->execute([":id" => $id]);
+    }
+
+    public function role($id, $role)
+    {
+        $query = "UPDATE users SET role_id = :role WHERE id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->execute([":role" => $role, ":id" => $id]);
+    }
 }
