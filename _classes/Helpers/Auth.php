@@ -12,7 +12,7 @@ class Auth
         if(isset($_SESSION["user"])){
             return $_SESSION["user"];
         }else{
-            Http::redirect(static::$loginPath, "login=false");
+            Http::redirect(static::$loginPath, "signin=false");
         }
     }
 }

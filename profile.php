@@ -26,6 +26,10 @@ $user = Auth::check();
             <li class="list-group-item"><b>Phone : </b><?= $user->phone ?></li>
             <li class="list-group-item"><b>Address : </b><?= $user->address ?></li>
         </ul>
+        <hr>
+        <div>
+            <button class="btn btn-outline btn-light"><a href="_actions/logout.php">Log out</a></button>
+        </div>
     </main>
 </body>
 </html>

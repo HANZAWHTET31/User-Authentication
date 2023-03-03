@@ -9,7 +9,7 @@
     <style>
         .wrap{
             width: 100%;
-            max-width: 300px;
+            max-width: 350px;
             margin: 50px auto;
         }
     </style>
@@ -19,9 +19,13 @@
         <section class="container">
             <h1>Log In</h1>
             <hr>
-            <?php if($_GET["login"] === "fail") : ?>
+            <?php if(isset($_GET["login"])) : ?>
                 <div class="p-3 mb-3">
                     <span class="alert alert-danger">Email and Password incorrect!</span>
+                </div>
+            <?php elseif(isset($_GET["signin"])) : ?>
+                <div class="p-3 mb-3">
+                    <span class="alert alert-danger">Enter your Email and Password!</span>
                 </div>
             <?php endif ?>
             <form action="_actions/login.php" method="post">

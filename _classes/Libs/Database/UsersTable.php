@@ -27,9 +27,12 @@ class UsersTable
 
     public function insert($data)
     {
+        $data["password"] = password_hash($data["password"], PASSWORD_DEFAULT);
         $query = "INSERT INTO users (name, email, phone, address, password, created_at) VALUES (:name, :email, :phone, :address, :password, NOW())";
         $statement = $this->db->prepare($query);
         $statement->execute($data);
+
+        return $this->db->lastInsertId();
     }
 
     public function getAll()
@@ -40,5 +43,5 @@ class UsersTable
         return $usersData;
     }
 
-    public function 
+    
 }
