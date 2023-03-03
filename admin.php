@@ -5,6 +5,7 @@ include("vendor/autoload.php");
 use Helpers\Auth;
 use Libs\Database\MySQL;
 use Libs\Database\UsersTable;
+use Libs\Database\RolesTable;
 
 $auth = new Auth;
 
@@ -13,6 +14,10 @@ $authUser = $auth::check();
 $usersTable = new UsersTable(new MySQL);
 
 $users = $usersTable->getAll();
+
+$rolesTable = new RolesTable(new MySQL);
+
+$roles = $rolesTable->getAllRoles();
 
 ?>
 
@@ -77,7 +82,7 @@ $users = $usersTable->getAll();
                                 <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">Change Role</a>
                                 <div class="dropdown-menu">
                                     <?php foreach($roles as $role) : ?>
-                                        <a href="_actions/role.php?id=<?=$user->id?>&role=<?=$role->id?>" class="dropdown-item"></a>
+                                        <a href="_actions/role.php?id=<?=$user->id?>&role=<?=$role->id?>" class="dropdown-item"><?=$role->name?></a>
                                     <?php endforeach ?>
                                 </div>
                                 <a href="_actions/delete.php?id=<?=$user->id?>" class="btn">delete</a>
