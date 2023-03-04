@@ -16,19 +16,25 @@ $user = Auth::check();
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <main class="container">
+    <main class="container p-3">
         <h1>Profile</h1>
         <hr>
         <h2><?= $user->name ?></h2>
+        <?php if($user->photo) : ?>
+            <img src="_actions/photos/<?=$user->photo?>" alt="Profile Photo" class="img-thumbnail border-3" width="300">
+        <?php endif ?>
         <form action="_actions/upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="photo" class="form-control">
-            <input type="submit" class="form-control" value="Upload">
+            <div class="input-group">
+                <input type="file" name="photo" class="form-control">
+                <button class="btn btn-secondary">Upload</button>
+            </div>
         </form>
+        <hr>
         <h3>Personal Info</h3>
         <ul class="list-group">
-            <li class="list-group-item"><b>Email : </b><?= $user->email ?></li>
-            <li class="list-group-item"><b>Phone : </b><?= $user->phone ?></li>
-            <li class="list-group-item"><b>Address : </b><?= $user->address ?></li>
+            <li class="list-group-item list-group-item-action active"><b>Email : </b><?= $user->email ?></li>
+            <li class="list-group-item list-group-item-action active"><b>Phone : </b><?= $user->phone ?></li>
+            <li class="list-group-item list-group-item-action active"><b>Address : </b><?= $user->address ?></li>
         </ul>
         <hr>
         <div>
