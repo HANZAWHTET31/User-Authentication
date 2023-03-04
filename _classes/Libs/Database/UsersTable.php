@@ -15,7 +15,7 @@ class UsersTable
 
     public function login($email, $password)
     {
-        $query = "SELECT users.*, roles.name AS role, roles.* FROM users LEFT JOIN roles ON users.role_id = roles.id WHERE email = :email AND password = :password";
+        $query = "SELECT users.*, roles.name AS role, roles.value FROM users LEFT JOIN roles ON users.role_id = roles.id WHERE email = :email AND password = :password";
 
         $statement = $this->db->prepare($query);
         $statement->execute([ ":email" => $email, ":password" => $password ]);
@@ -71,5 +71,12 @@ class UsersTable
         $query = "UPDATE users SET role_id = :role WHERE id = :id";
         $statement = $this->db->prepare($query);
         $statement->execute([":role" => $role, ":id" => $id]);
+    }
+
+    public function uploadPhoto($id, $photo)
+    {
+        $query = "UPDATE users SET photo = :photo WHERE id = :id";
+        $statement = $this->db->prepare($query);
+        $statement->execute([":id" => $id, ":photo" => $photo]);
     }
 }
