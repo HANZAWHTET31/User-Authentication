@@ -10,8 +10,8 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $phone = $_POST["phone"];
 $address = $_POST["address"];
-$password = $_POST["password"];
-
+$password = md5($_POST["password"]);
+// $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 $data = [
     ":name" => $name,
     ":email" => $email,

@@ -7,7 +7,7 @@ use Libs\Database\MySQL;
 use Libs\Database\UsersTable;
 
 $email = $_POST["email"];
-$password = $_POST["password"];
+$password = md5($_POST["password"]);
 
 $usersTable = new UsersTable(new MySQL);
 

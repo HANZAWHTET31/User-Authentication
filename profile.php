@@ -21,7 +21,10 @@ $user = Auth::check();
         <hr>
         <h2><?= $user->name ?></h2>
         <?php if($user->photo) : ?>
-            <img src="_actions/photos/<?=$user->photo?>" alt="Profile Photo" class="img-thumbnail border-3" width="300">
+            <img src="_actions/photos/<?=$user->photo?>" alt="Profile Photo" class="img-thumbnail border-3" width="150">
+        <?php endif ?>
+        <?php if(isset($_GET["error"])) : ?>
+            <div class="alert alert-warning">Cannot Upload Photo!</div>
         <?php endif ?>
         <form action="_actions/upload.php" method="post" enctype="multipart/form-data">
             <div class="input-group">
